@@ -1,0 +1,89 @@
+﻿@model Hospital.Models.Clinic
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link href="~/css/clinic.css" rel="stylesheet" />
+
+<body2>
+    <div class="container">
+        <header>Clinic Summary  Details</header>
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div class="form first">
+                <div class="details Protein">
+                    <div class="fields">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="input-field">
+                            <label asp-for="ClinicId">Clinic ID</label>
+                            <input asp-for="ClinicId" type="number" placeholder="Enter Clinic ID" />
+                        </div>
+                        <span asp-validation-for="ClinicId" class="text-danger"></span>
+                        <div class="input-field">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" type="text" placeholder="Enter Name" />
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <div class="input-field">
+                            <label asp-for="Address">Address</label>
+                            <input asp-for="Address" type="text" placeholder="Enter Address" />
+                        </div>
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                        <div class="input-field">
+                            <label asp-for="Created_Date">Created Date</label>
+                            <input asp-for="Created_Date" type="date" placeholder="Enter Created Date" />
+                        </div>
+                        <span asp-validation-for="Created_Date" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Save" class="btn btn-primary" /> |
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body2>
+
+@* <h1>Edit</h1>
+
+<h4>Clinic</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClinicId" class="control-label"></label>
+                <input asp-for="ClinicId" class="form-control" />
+                <span asp-validation-for="ClinicId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Created_Date" class="control-label"></label>
+                <input asp-for="Created_Date" class="form-control" />
+                <span asp-validation-for="Created_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

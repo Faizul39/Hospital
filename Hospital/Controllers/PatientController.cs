@@ -57,12 +57,8 @@ namespace Hospital.Controllers
             return View(pitns);
         }
         [HttpGet]
-        public IActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        public IActionResult Delete(int id)
+        {     
             var pitns = _ctx.patient.Find(id);
             return View(pitns);
         }

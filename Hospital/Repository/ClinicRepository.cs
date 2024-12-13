@@ -25,11 +25,11 @@ namespace Hospital.Repository
             return cln;
         }
 
-        public Clinic AddClinic(Clinic cln)
+        public Clinic AddClinic(Clinic clnc)
         {
-            _ctx.clinic.Add(cln);
+            _ctx.clinic.Add(clnc);
             _ctx.SaveChanges();
-            return cln;
+            return clnc;
         }
 
         public Clinic UpdateClinic(Clinic ucln)
