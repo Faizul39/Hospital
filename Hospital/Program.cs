@@ -1,11 +1,25 @@
+using Hospital.Interface;
+using Hospital.Models;
+using Hospital.Repository;
+using Hospital.StartupExtension;
+using Hospital.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDatabaseExtensionHelper(builder.Configuration);
+builder.Services.AddTransient<IClinic, ClinicRepository>();
+builder.Services.AddTransient<IPatient, PatientRepository>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -14,9 +28,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseRouting();
 
+app.UseStaticFiles();
+
 app.UseAuthorization();
+
+app.UseAuthentication();
 
 app.MapStaticAssets();
 
@@ -25,5 +44,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+app.MapRazorPages();
 
 app.Run();
