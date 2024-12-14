@@ -26,12 +26,12 @@
                         <span asp-validation-for="Age" class="text-danger"></span>
                         <div class="input-field">
                             <label asp-for="ClinicId">Clinic ID</label>
-                            <input asp-for="ClinicId" type="number" onchange="setTwoNumberDecimal" min="0" max="1000" step="0.25" value="0.00" placeholder="Enter Clinic ID" />
+                            <input asp-for="ClinicId" type="number" placeholder="Enter Clinic ID" />
                         </div>
                         <span asp-validation-for="ClinicId" class="text-danger"></span>
                         <div class="input-field">
                             <label asp-for="Created_Date">Created Date</label>
-                            <input asp-for="Created_Date" type="date" placeholder="Created Date" />
+                            <input asp-for="Created_Date" type="date"/>
                         </div>
                         <span asp-validation-for="Created_Date" class="text-danger"></span>
                     </div>
